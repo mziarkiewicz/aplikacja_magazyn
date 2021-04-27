@@ -15,19 +15,19 @@
                         <div class="row gtr-uniform gtr-50">
                             <div class="col-3 col-12-xsmall">
                                 <input type="text" name="nazwa" list="nazwaHints" placeholder="Nazwa"
-                                       onkeyup="ajaxReloadElement('nazwaHints','{$conf->action_root}hint?column=nazwa&value='+this.value,doNothing)">
+                                       onkeyup="ajaxReloadElement('nazwaHints','{$conf->action_root}hint?column=nazwa&value='+this.value)">
                                 <datalist id="nazwaHints">
                                 </datalist>
                             </div>
                             <div class="col-3 col-12-xsmall">
                                 <input type="text" name="producent" list="producentHints" placeholder="Producent"
-                                       onkeyup="ajaxReloadElement('producentHints','{$conf->action_root}hint?column=producent&value='+this.value,doNothing)">
+                                       onkeyup="ajaxReloadElement('producentHints','{$conf->action_root}hint?column=producent&value='+this.value)">
                                 <datalist id="producentHints">
                                 </datalist>
                             </div>
                             <div class="col-2 col-12-xsmall">
                                 <input type="text" name="modelurz" list="modelHints" placeholder="Model"
-                                       onkeyup="ajaxReloadElement('modelHints','{$conf->action_root}hint?column=model&value='+this.value,doNothing)">
+                                       onkeyup="ajaxReloadElement('modelHints','{$conf->action_root}hint?column=model&value='+this.value)">
                                 <datalist id="modelHints">
                                 </datalist>
                             </div>
@@ -95,4 +95,9 @@
             {include file='messages.tpl'}
         </div>
     </div>
+{*<script>*}
+{*    function doNothing() {*}
+{*        return false;*}
+{*    }*}
+{*</script>*}
 {/block}

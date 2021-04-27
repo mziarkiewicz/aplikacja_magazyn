@@ -56,8 +56,3 @@ function ajaxReloadElement(id_element,url,interval=0) {
 	xhttp.open("GET", url, true);
 	xhttp.send();
 }
-
-
-function doNothing() {
-	return false;
-}
