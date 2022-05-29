@@ -4,20 +4,26 @@
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html lang="pl">
 	<head>
 		<title>{$page_title|default:"Aplikacja wspomagająca ewidencje sprzętu"}</title>
 		<meta charset="utf-8"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="{$conf->styles}main.css" />
 		<noscript><link rel="stylesheet" href="{$conf->styles}noscript.css" /></noscript>
+{*		<script src="https://www.google.com/recaptcha/api.js"></script>*}
+{*		<script>*}
+{*			function onSubmit(token) {*}
+{*				document.getElementById("login_form").submit();*}
+{*			}*}
+{*		</script>*}
 	</head>
 	<body class="is-preload landing">
 		<div id="page-wrapper">
 
 			<!-- Header -->
 				<header id="header">
-					<h1 id="logo"><a href="{$conf->action_root}">Aplikacja Ewidencja</a></h1>
+					<h1 id="logo" style="font-family: 'Righteous', cursive; color: #e44c65;" ><a href="{$conf->action_root}">Ewidencja</a></h1>
 					<nav id="nav">
 						<ul>
 							{if count($conf->roles)>0}
@@ -25,12 +31,15 @@
 							<li><a href="{$conf->action_root}itemAdd">Dodaj przedmiot</a></li>
 							{/if}
 							{if core\RoleUtils::inRole("admin")}
-								<li><a href="#">Zarządzanie</a>
+								<li><a href="#">Użytkownicy</a>
 									<ul>
 										<li><a href="{$conf->action_root}userAdd">Dodaj użytkownika</a></li>
 										<li><a href="{$conf->action_root}showUsersPage">Zarządzaj użytkownikami</a></li>
 									</ul>
 								</li>
+							{/if}
+							{if count($conf->roles)>0}
+								<li><a href="{$conf->action_root}contact">Formularz kontaktowy</a></li>
 							{/if}
 							{if count($conf->roles)>0}
 								<li><a href="{$conf->action_root}logout" class="button">Wyloguj</a></li>

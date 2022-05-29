@@ -13,6 +13,7 @@ Utils::addRoute('showMainPage', 'MainCtrl',['admin','user']);
 Utils::addRoute('login', 'LoginCtrl');
 Utils::addRoute('logout', 'LoginCtrl');
 
+Utils::addRoute('itemView','ViewItemCtrl',['admin','user']);
 Utils::addRoute('itemAdd', 'EditCtrl',['admin','user']);
 Utils::addRoute('itemSave', 'EditCtrl',['admin','user']);
 Utils::addRoute('itemEdit', 'EditCtrl',['admin','user']);
@@ -23,6 +24,9 @@ Utils::addRoute('userEdit', 'EditUserCtrl',['admin']);
 Utils::addRoute('userSave', 'EditUserCtrl',['admin']);
 Utils::addRoute('userDelete', 'EditUserCtrl',['admin']);
 Utils::addRoute('showUsersPage', 'MainUserCtrl',['admin']);
+
+Utils::addRoute('contact', 'FormContactCtrl',['admin','user']);
+Utils::addRoute('messageSend', 'FormContactCtrl',['admin','user']);
 
 Utils::addRoute('search', 'SearchCtrl');
 Utils::addRoute('hint', 'SearchHintsCtrl');

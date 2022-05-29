@@ -100,7 +100,7 @@ class LoginCtrl {
             SessionUtils::store("role", $this->lista["nazwa"]);
             RoleUtils::addRole($this->lista["nazwa"]);
             Utils::addInfoMessage('Poprawnie zalogowano do systemu');
-            App::getRouter()->redirectTo("showMainPage");
+            App::getRouter()->forwardTo("showMainPage");
         } else {
             App::getSmarty()->assign('form', $this->form);
             App::getSmarty()->display('LoginView.tpl');

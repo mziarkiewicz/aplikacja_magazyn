@@ -5,7 +5,7 @@
     <div id="main" class="wrapper style1">
         <div class="container">
             <header class="major">
-                <h2>Panel zarządzający</h2>
+                <h2>Panel główny</h2>
             </header>
             <!-- Content -->
             <section id="content">
@@ -60,6 +60,7 @@
                                 <th>Typ</th>
                                 <th>Pokój</th>
                                 <th>Dział</th>
+                                <th>Szczegóły</th>
                                 <th>Edytuj</th>
                                 <th>Usuń</th>
                             </tr>
@@ -74,6 +75,7 @@
                                     <td>{$wiersz["typ"]}</td>
                                     <td>{$wiersz["numer"]}</td>
                                     <td>{$wiersz["nazwadzialu"]}</td>
+                                    <td style="width: 1em"><a href="{$conf->action_root}itemView/{$wiersz['idprzedmiot']}" class="button small">Wyświetl</a></td>
                                     <td style="width: 1em"><a href="{$conf->action_root}itemEdit/{$wiersz['idprzedmiot']}" class="button primary small">Edytuj</a></td>
                                     <td style="width: 1em"><a href="{$conf->action_root}itemDelete/{$wiersz['idprzedmiot']}" onclick="return confirm('Czy na pewno chcesz usunąć z ewidencji ten przedmiot?')" class="button small">Usuń</a></td>
                                 </tr>
@@ -81,7 +83,7 @@
                             </tbody>
                         </table>
                             <a type="button" class="button small" href="{if $previous_page > 0}{$conf->action_root}showMainPage/{$previous_page}{else}{$conf->action_root}showMainPage{/if}">Poprzednia strona</a>
-                            <a type="button" class="button small" href="{if $isNextPage}{$conf->action_root}showMainPage/{$next_page}{else}{$conf->action_root}showMainPage{/if}">Następna strona</a>
+                            <a type="button" class="button small" href="{if $isNextPage}{$conf->action_root}showMainPage/{$next_page}{/if}">Następna strona</a>
                     </div><br/>
             </section>
         </div>
@@ -89,11 +91,5 @@
             {include file='messages.tpl'}
         </div>
     </div>
-
-{*    <script>*}
-{*        function doNothing() {*}
-{*            return false;*}
-{*        }*}
-{*    </script>*}
 
 {/block}

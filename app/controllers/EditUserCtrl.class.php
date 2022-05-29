@@ -110,10 +110,14 @@ class EditUserCtrl
                 $record = App::getDB()->get("user", "*", [
                     "iduser" => $this->form->iduser
                 ]);
-                $this->form->iduser = $record['iduser'];
-                $this->form->login = $record['login'];
-                //$this->form->haslo = $record['haslo'];
-                $this->form->idrole = $record['idrole'];
+                if(!is_null($record)) {
+                    $this->form->iduser = $record['iduser'];
+                    $this->form->login = $record['login'];
+                    //$this->form->haslo = $record['haslo'];
+                    $this->form->idrole = $record['idrole'];
+                } else {
+                    Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu - brak użytkownika w bazie');
+                }
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)

@@ -39,7 +39,7 @@ class EditCtrl
 
     public function validateSave()
     {
-        $this->form->idprzedmiot = ParamUtils::getFromPost('idprzedmiot', true, '123Błędne wywołanie aplikacji');
+        $this->form->idprzedmiot = ParamUtils::getFromPost('idprzedmiot', true, 'Błędne wywołanie aplikacji');
 
         $v = new Validator();
 
@@ -83,7 +83,7 @@ class EditCtrl
             'trim' => true,
             'required' => true,
             'int' => true,
-            'required_message' => 'Podaj pomieszczenie, gdzie znajduję się urządzenie.',
+            'required_message' => 'Podaj pomieszczenie, gdzie znajduje się urządzenie.',
             'min_length' => 1,
             'max_length' => 4,
             'validator_message' => 'Niepoprawnie wprowadzony identyfikator pomieszczenia'
@@ -113,13 +113,16 @@ class EditCtrl
                 $record = App::getDB()->get("przedmiot", "*", [
                     "idprzedmiot" => $this->form->idprzedmiot
                 ]);
-                $this->form->idprzedmiot = $record['idprzedmiot'];
-                $this->form->nazwa = $record['nazwa'];
-                $this->form->producent = $record['producent'];
-                $this->form->modelurz = $record['model'];
-                $this->form->typ = $record['typ'];
-                $this->form->idpomieszczenie = $record['idpomieszczenie'];
-
+                if(!is_null($record)) {
+                    $this->form->idprzedmiot = $record['idprzedmiot'];
+                    $this->form->nazwa = $record['nazwa'];
+                    $this->form->producent = $record['producent'];
+                    $this->form->modelurz = $record['model'];
+                    $this->form->typ = $record['typ'];
+                    $this->form->idpomieszczenie = $record['idpomieszczenie'];
+                } else {
+                    Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu - brak podanego przedmiotu w bazie');
+                }
             } catch (\PDOException $e) {
                 Utils::addErrorMessage('Wystąpił błąd podczas odczytu rekordu');
                 if (App::getConf()->debug)

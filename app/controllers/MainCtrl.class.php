@@ -10,7 +10,7 @@ class MainCtrl {
 
     public $items;
     public $offset = 1;
-    public $records = 10;
+    public $records = 5;
 
     public function getItemsFromDB() {
         try {

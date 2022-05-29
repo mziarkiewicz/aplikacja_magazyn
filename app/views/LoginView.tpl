@@ -12,7 +12,7 @@
             <!-- Form -->
             <section>
                 <h3>Logowanie</h3>
-                <form method="post" action="{$conf->action_url}login">
+                <form method="post" id="login_form" action="{$conf->action_url}login">
                     <div class="row gtr-uniform gtr-50">
                         <div class="col-6">
                             <input type="text" name="login" id="id_login" placeholder="Login" />
@@ -21,6 +21,10 @@
                             <input type="password" name="pass" id="id_pass" placeholder="Hasło" />
                         </div>
                         <div class="col-12">
+{*                            <button class="g-recaptcha" class="button primary"*}
+{*                                    data-sitekey="6Lel8pQfAAAAAFn2IBtjpyGJkA8b7cIHnpdOx5sp"*}
+{*                                    data-callback='onSubmit'*}
+{*                                    data-action='submit'>Zaloguj</button>*}
                             <input type="submit" value="Zaloguj" class=" button primary fit" />
                         </div>
                     </div>
